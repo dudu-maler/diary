@@ -1,1 +1,30 @@
-
+2025.2.25
+web3学习方面：
+    以太坊白皮书
+    1.以太坊状态转化，以太坊在完成交易时需要判断交易格式是否正确，是否有足够的gas fee，还是否有足够的本金和余额，
+        如果有任何一项有错误，就会导致状态恢复到原状。如果成功就会完成交易，并把一部分gas fee交给矿工。以太坊的交易都是通过
+        智能合约来完成的，智能合约需要按程序一步步来执行，每一步都会按照难易程度，花费一定数量的gas。gas是矿工获得收益的基本单位，
+        gas的价格由eth价格表示。如1gas = 0.0001eth。所以总的费用就表示为gas_counts*gas_price,在书中写道一字节就代表了1gas。
+    2.代码执行。以太坊的数据存储类型有三种：stack、memory存储可扩展的数组、storage合约代码的长期存储，不会因为计算机的断电而消失。
+        智能合约也被称作EVMcode。EVM可以计算多种类型的数据：block_state,transaction,message,code,memory,stack,pc,gas
+        block_state是一个全局数据结构，包括了地址的余额和存储。
+        pc是程序指令，用于表示下一条指令的位置
+    3.blockchain和mining blockchain和bitcoin的类似，都是在核对各项数据正确后按照transaction list的内容顺序执行。
+        不同的是，在以太坊中存储state存储在树结构中，两个相邻区块的树结构相似，只有少部分数据发生了变化，所以只需要存储一次就可以调用两次
+        另外，默克尔数可以有效的插入和删除节点。并且，最后一个区块会存储整个区块链的交易历史，所以在存储空间会更高。
+人工智能学习：
+    线性代数：
+        import tensorflow as tf
+        tf.reshape(tf.range(20), (5, 4)) fuction: reshape改变向量的维度和结构;range()自动生成向量
+        tf.constant([[1, 2, 3][4, 5, 6][7, 8, 9]]) function：constant生成指定内容的向量
+        B = tf.transpose(B) function:矩阵转置
+        handamard积：C = A*B张量各个对应的元素相乘
+        sumA_axis0 = tf.reduce_sum(A, axis=0) function:矩阵将各行的元素相加 参数axis代表了维度，0代表按行相加，1代表按列相加，没有则是全部相加
+        sumA_axis0 = tf.reduce_sum(A, axis=0, keepdims=True) function:按行相加，但是保留维度不变，便于后续的矩阵之间的操作和扩展。
+        meanA_axis0 = tf.reduce_mean(A, axis=0) function:矩阵行求平均值
+        sumA_axis0 = tf.cumsum(A, axis=0) function:按行累积计算总和
+        tf.tensordot(x, y, axes=1)function :点积，axes表示沿着哪一个维度
+        tf.linalg.matvec(A, x) function:矩阵与向量的点积
+        tf.matmul(A, B)function:矩阵与矩阵的点积
+        范数：表示向量的长度
+        tf.norm(x)
